@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotinas de Escritório - Guia Ilustrado</title>
+  <style>
+    :root {
+      --color-bg: #fffcf2;
+      --color-card: #fefdff;
+      --color-primary: #6dcff6;
+      --color-border: #3ac7e3;
+      --color-shadow: #8ed1fc55;
+      --color-title: #333049;
+      --color-text: #2f3640;
+      --color-accent: #f6b737;
+      --color-secondary: #93e2af;
+    }
+    body {
+      font-family: 'Comic Sans MS', 'Baloo 2', Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background: linear-gradient(90deg, var(--color-primary) 60%, var(--color-accent) 100%);
+      color: #233263;
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      border-bottom: 4px solid var(--color-border);
+      box-shadow: 0 3px 12px var(--color-shadow);
+    }
+    .header h1 {
+      font-size: 2.6rem;
+      margin: 0;
+      letter-spacing: 2px;
+      font-weight: 900;
+      text-shadow: 1px 2px 0 #fff7, 1px 4px 24px #8ed1fc66;
+    }
+    .header p {
+      font-size: 1.3rem;
+      margin: .6rem 0 0 0;
+      font-weight: 500;
+    }
+    .cartoon-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2.5rem auto 3rem auto;
+      max-width: 1100px;
+    }
+    .cartoon-card {
+      position: relative;
+      background: var(--color-card);
+      border: 3px solid var(--color-primary);
+      box-shadow: 0 4px 24px var(--color-shadow);
+      border-radius: 1.2rem;
+      width: 320px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.8rem 1.2rem .6rem 1.2rem;
+      transition: transform .15s cubic-bezier(.68,-0.55,.27,1.55);
+      margin-bottom: 2rem;
+      z-index: 1;
+    }
+    .cartoon-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      border-color: var(--color-accent);
+    }
+    .cartoon-img {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+      box-shadow: 0 2px 12px var(--color-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .7rem;
+      font-size: 2.8rem;
+    }
+    .cartoon-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--color-title);
+      text-align: center;
+      background: var(--color-accent);
+      border-radius: .6rem;
+      padding: .3rem .8rem;
+      margin-bottom: .5rem;
+      margin-top: .3rem;
+      box-shadow: 0 1.5px 4px #ffcf37a1;
+      letter-spacing: 1px;
+      display: inline-block;
+    }
+    .cartoon-desc {
+      font-size: 1.04rem;
+      line-height: 1.7;
+      margin-bottom: .7rem;
+      text-align: left;
+    }
+    .cartoon-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.5rem 0;
+      font-size: 0.98rem;
+    }
+    .cartoon-list li {
+      margin-bottom: .18rem;
+      line-height: 1.3;
+    }
+    .cartoon-card .example {
+      font-size: .95rem;
+      color: #297189;
+      background: #eafdff;
+      border-left: 3px solid var(--color-primary);
+      padding: .28rem .6rem;
+      border-radius: .5rem;
+      margin-bottom: .4rem;
+      margin-top: .22rem;
+      font-style: italic;
+    }
+    @media (max-width: 900px) {
+      .cartoon-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+    }
+    .topic-nav {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+    .topic-nav label {
+      font-weight: bold;
+      margin-right: .6rem;
+    }
+    .topic-select {
+      font-size: 1.15rem;
+      background: var(--color-primary);
+      color: #244977;
+      border: 2px solid var(--color-accent);
+      border-radius: .7rem;
+      padding: .2rem .8rem;
+      font-family: inherit;
+      font-weight: 600;
+      box-shadow: 0 2px 8px #c6eaff89;
+    }
+    .footer {
+      text-align: center;
+      margin: 2.2rem 0 1.1rem 0;
+      font-size: .95rem;
+      color: #888;
+      letter-spacing: .7px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Rotinas de Escritório: Guia Cartunesco</h1>
+    <p>Entenda facilmente os principais temas de <strong>administração e escritório</strong> com ilustrações e exemplos direto do cotidiano!</p>
+  </div>
+  <div class="topic-nav">
+    <label for="sel-topic">Escolha um tema:</label>
+    <select id="sel-topic" class="topic-select">
+      <option value="rotinas">Rotinas de Escritório</option>
+      <option value="documentos">Documentos Comerciais</option>
+      <option value="postal">Serviço Postal</option>
+      <option value="empresa">Tipos e Organização de Empresas</option>
+      <option value="recursos">Recursos Humanos</option>
+      <option value="processos">Processos Administrativos</option>
+    </select>
+  </div>
+  <div id="ilustra-cards" class="cartoon-section">
+    <!-- Conteúdo dinâmico JS -->
+  </div>
+  <div class="footer">
+    <span>Desenvolvido para ensino e formação administrativa &copy; 2025</span>
+  </div>
+  <script>
+    // Informações detalhadas e exemplos para cada tema (cartoon style)
+    const topics = {
+      rotinas: [
+        {
+          emoji: "🗂️",
+          title: "Organização das Empresas",
+          desc: "A organização é a base do funcionamento da empresa. Estruturar setores, funções e hierarquias ajuda a garantir eficiência e facilitar a comunicação entre departamentos.",
+          list: [
+            "Organograma: representação visual da hierarquia (diretoria, gerências, coordenações, operacional)",
+            "Fluxograma: mapeamento do processo passo a passo, indicando início, decisões e fim",
+            "Cronograma: planejamento temporal das atividades com prazos e responsáveis",
+            "Categorias: micro, pequena, média e grande empresa",
+            "Classificação: indústria, comércio ou prestação de serviços"
+          ],
+          example: "Organograma = mapa da empresa, do diretor até o estagiário. Fluxograma mostra o caminho de uma solicitação de compra até a aprovação final."
+        },
+        {
+          emoji: "🧑‍💼",
+          title: "Categorias & Classificação",
+          desc: "Empresas podem ser classificadas por porte (número de funcionários e faturamento) e por atividade econômica (comércio, indústria, serviços).",
+          list: [
+            "Microempresa: até 9 funcionários (comércio/serviços) ou até 19 (indústria)",
+            "Pequena empresa: 10 a 49 funcionários",
+            "Média empresa: 50 a 99 funcionários",
+            "Grande empresa: acima de 100 funcionários",
+            "Comércio: compra e venda de produtos",
+            "Indústria: transformação de matéria-prima",
+            "Serviços: atividades intangíveis (consultoria, manutenção, educação)"
+          ],
+          example: "Mercadinho do bairro = microempresa comercial; Fábrica de móveis = média empresa industrial; Rede de supermercados = grande empresa comercial."
+        },
+        {
+          emoji: "📈",
+          title: "Rotinas Administrativas",
+          desc: "São tarefas do dia a dia que mantêm a empresa funcionando: controle de ponto, arquivamento, documentação, reuniões, atendimento telefônico, gestão de correspondências.",
+          list: [
+            "Apontamento de horas: registro diário da jornada de trabalho",
+            "Gestão de faltas e atrasos: controle para folha de pagamento",
+            "Atualização de arquivos: físicos e digitais organizados",
+            "Controle de suprimentos: papel, canetas, materiais de escritório",
+            "Agenda de reuniões: reserva de salas e convocação de participantes",
+            "Atendimento: telefone, e-mail e recepção de visitantes",
+            "Protocolo de documentos: registro de entrada e saída"
+          ],
+          example: "Bater ponto na entrada e saída é rotina obrigatória. Protocolar documentos garante rastreio e segurança jurídica."
+        }
+      ],
+      documentos: [
+        {
+          emoji: "💸",
+          title: "Cheques e Pagamentos",
+          desc: "Cheque é uma ordem de pagamento à vista contra um banco. Existem vários tipos conforme segurança e destinatário.",
+          list: [
+            "Cheque ao portador: qualquer pessoa pode sacar (sem nome específico)",
+            "Cheque nominal: emitido em nome de pessoa específica (à ordem de...)",
+            "Cheque cruzado: só pode ser depositado em conta (duas linhas paralelas no cheque)",
+            "Cheque visado: banco garante que tem fundos (carimbado pelo banco)",
+            "Cheque especial: limite pré-aprovado pelo banco (usado quando não há saldo)",
+            "Cheque administrativo: emitido pelo próprio banco (muito seguro para grandes valores)",
+            "Ordem de pagamento: documento bancário para transferência segura"
+          ],
+          example: "Entregar cheque cruzado evita que estranhos saquem em dinheiro. Cheque visado é exigido em operações imobiliárias."
+        },
+        {
+          emoji: "🧾",
+          title: "Notas e Recibos",
+          desc: "Documentos para comprovar vendas, prestação de serviços ou recebimentos. Essenciais para controle fiscal e contábil.",
+          list: [
+            "Nota fiscal: documento obrigatório em vendas de produtos ou serviços (inclui impostos)",
+            "Recibo: comprovante simples de pagamento recebido (autônomo ou aluguel)",
+            "Fatura: documento que detalha produtos/serviços vendidos a prazo",
+            "Duplicata: título de crédito gerado da fatura (pode ser protestado se não pago)",
+            "Nota promissória: promessa escrita de pagar valor em data futura",
+            "Nota fiscal eletrônica (NF-e): emitida digitalmente e armazenada na Receita Federal"
+          ],
+          example: "Ao vender um produto, emita a nota fiscal para o cliente. Fatura de R$ 5.000 gera duplicata com vencimento em 30 dias."
+        },
+        {
+          emoji: "🏦",
+          title: "Outros Documentos",
+          desc: "Borderô, DARF e ordem de pagamento são usados no controle financeiro, cobrança bancária e obrigações fiscais federais.",
+          list: [
+            "Borderô: relação de documentos (cheques, duplicatas) enviados ao banco para cobrança",
+            "DARF (Documento de Arrecadação de Receitas Federais): guia para pagamento de impostos federais (IR, INSS, etc.)",
+            "Ordem de pagamento: autorização bancária para transferir valores",
+            "Boleto bancário: título de cobrança emitido por empresas via banco",
+            "Guia de recolhimento: documentos para pagamento de tributos estaduais e municipais"
+          ],
+          example: "Pagar INSS da empresa = usar DARF com código específico. Borderô facilita controle de recebíveis no banco."
+        }
+      ],
+      postal: [
+        {
+          emoji: "📮",
+          title: "Cartas & Envio",
+          desc: "Cartas podem ser simples, registrada (prova de envio) ou com A.R. (aviso de recebimento). Malote é usado para grandes volumes entre filiais.",
+          list: [
+            "Carta simples: envio comum sem rastreio (mais barata)",
+            "Carta registrada: tem código de rastreio e comprovante de postagem",
+            "A.R. (Aviso de Recebimento): confirmação assinada pelo destinatário (prova de entrega)",
+            "Malote: envelope ou saco lacrado para transporte de documentos em grande volume",
+            "SEDEX: serviço de entrega expressa dos Correios com prazo garantido",
+            "PAC: envio econômico com prazo maior"
+          ],
+          example: "Enviar notificação judicial: sempre use carta registrada com A.R.! Malote diário entre matriz e filial."
+        },
+        {
+          emoji: "🚀",
+          title: "Entrega Rápida & Telegrama",
+          desc: "Para urgências e comunicações oficiais, use serviços expressos de entrega ou telegrama institucional.",
+          list: [
+            "Entrega rápida (motoboy, courier): documento chega no mesmo dia (ideal para contratos urgentes)",
+            "SEDEX 10: entrega até 10h do dia seguinte",
+            "Telegrama: mensagem urgente via correios (ainda usado para notificações oficiais)",
+            "Telegrama fonado: operador dos Correios telefona e lê mensagem ao destinatário",
+            "E-mail com confirmação de leitura: alternativa digital para comunicação formal rápida"
+          ],
+          example: "Aviso de reunião urgente pode ser enviado por telegrama ou e-mail certificado. Contrato para assinatura hoje = motoboy."
+        }
+      ],
+      empresa: [
+        {
+          emoji: "🏢",
+          title: "Tipos de Empresa",
+          desc: "Empresa individual, sociedade limitada (LTDA), S/A (sociedade anônima) e MEI são formas jurídicas. Cada uma tem regras, tributação e responsabilidades próprias.",
+          list: [
+            "MEI (Microempreendedor Individual): faturamento até R$ 81 mil/ano, tributação simplificada, sem sócios",
+            "EI (Empresário Individual): sem limite de faturamento, patrimônio pessoal responde por dívidas",
+            "LTDA (Sociedade Limitada): dois ou mais sócios, responsabilidade limitada ao capital social",
+            "S/A (Sociedade Anônima): capital dividido em ações, pode ser aberta (bolsa) ou fechada",
+            "EIRELI: um único sócio, capital mínimo de 100 salários, responsabilidade limitada",
+            "Cooperativa: sociedade de pessoas com objetivos comuns (ex: cooperativa de crédito)"
+          ],
+          example: "Salão de beleza pode ser MEI. Fábrica de médio porte geralmente é LTDA. Banco é S/A aberta."
+        },
+        {
+          emoji: "📜",
+          title: "Constituição & Legalização",
+          desc: "Abrir empresa exige CNPJ, inscrição estadual/municipal, registro na Junta Comercial e alvarás. Estar em dia com a lei evita multas e interdições.",
+          list: [
+            "CNPJ: Cadastro Nacional de Pessoa Jurídica (obtido na Receita Federal)",
+            "Contrato Social ou Requerimento de Empresário: documento que formaliza a empresa",
+            "Junta Comercial: registro oficial da empresa no estado",
+            "Inscrição Estadual: para empresas que vendem produtos (ICMS)",
+            "Inscrição Municipal: para prestadores de serviços (ISS)",
+            "Alvará de Funcionamento: autorização da prefeitura para operar no local",
+            "Licenças específicas: Vigilância Sanitária, Corpo de Bombeiros, Ambiental"
+          ],
+          example: "Sem alvará, a empresa pode ser fechada pela fiscalização. Restaurante precisa de Vigilância Sanitária e Bombeiros."
+        },
+        {
+          emoji: "📈",
+          title: "Guias de Recolhimento",
+          desc: "Pagamentos obrigatórios de tributos e contribuições sociais. Feitos por guias específicas com códigos e vencimentos próprios.",
+          list: [
+            "INSS (GPS): contribuição de 7,5% a 14% (progressiva), teto R$ 8.157,41 (2025), vence dia 20",
+            "FGTS (GRF/SEFIP): 8% do salário depositado na Caixa Econômica, vence dia 7",
+            "IRRF (DARF): Imposto de Renda Retido na Fonte, recolhido pela empresa",
+            "PIS/COFINS: contribuições federais sobre faturamento",
+            "ISS: Imposto Sobre Serviços (municipal)",
+            "ICMS: Imposto sobre Circulação de Mercadorias (estadual)",
+            "Contribuição Sindical: opcional desde 2017, somente com autorização do trabalhador"
+          ],
+          example: "Toda folha de pagamento gera GPS (INSS) e FGTS. Empresa de serviços recolhe ISS mensalmente."
+        }
+      ],
+      recursos: [
+        {
+          emoji: "⌛",
+          title: "Jornada & Horas",
+          desc: "Registro do horário de trabalho, horas extras, faltas e cálculo do descanso semanal remunerado (DSR). Controle obrigatório para empresas com mais de 20 funcionários.",
+          list: [
+            "Jornada normal: 8 horas/dia, 44 horas/semana (CLT), salário mínimo 2025: R$ 1.518",
+            "Ponto eletrônico, manual ou biométrico (obrigatório acima de 20 colaboradores)",
+            "Horas extras: pagamento de 50% a mais (dias úteis) ou 100% (domingos e feriados)",
+            "DSR (Descanso Semanal Remunerado): um dia de folga por semana, geralmente domingo",
+            "Banco de horas: compensação de horas extras com folgas",
+            "Apontamento de horas: controle diário para apuração da folha de pagamento",
+            "Integração de horas extras ao DSR: horas extras influenciam o cálculo do DSR"
+          ],
+          example: "Trabalhou domingo? Recebe o dia em dobro + DSR. Empresa com 25 funcionários = ponto obrigatório."
+        },
+        {
+          emoji: "📑",
+          title: "Remuneração e Descontos",
+          desc: "Salário, descontos obrigatórios (INSS, IR, faltas) e facultativos (vale-transporte, plano de saúde). Horas extras integram o cálculo de DSR, férias e 13º.",
+          list: [
+            "INSS: desconto de 7,5% a 14% conforme faixa salarial, teto de R$ 8.157,41 em 2025",
+            "IRRF (Imposto de Renda): isenção até R$ 2.824 (com desconto simplificado) desde maio/2025",
+            "Faltas e atrasos: desconto proporcional ao salário (1/30 por dia, 1/220 por hora)",
+            "Vale-transporte: desconto de até 6% do salário (opcional para o trabalhador)",
+            "Plano de saúde/odontológico: desconto conforme contrato (facultativo)",
+            "Pensão alimentícia: desconto judicial obrigatório",
+            "Adiantamento salarial: permitido até 40% do salário"
+          ],
+          example: "Faltou sem atestado? Desconta 1/30 do salário + perde DSR. Horas extras aumentam o valor de férias e 13º."
+        },
+        {
+          emoji: "🤝",
+          title: "Relações Humanas e CIPA",
+          desc: "Boa convivência, comunicação respeitosa e cuidado com a segurança (CIPA) são essenciais para o ambiente de trabalho saudável e produtivo.",
+          list: [
+            "CIPA (Comissão Interna de Prevenção de Acidentes): obrigatória conforme número de funcionários e grau de risco",
+            "Membros eleitos e indicados: representam empresa e empregados",
+            "Treinamentos de segurança: uso de EPI, prevenção de acidentes, ergonomia",
+            "Integração de novos funcionários: apresentação da cultura, normas e equipe",
+            "Programas de engajamento: reconhecimento, feedback, clima organizacional",
+            "Código de conduta: regras de convivência e ética profissional",
+            "Canal de denúncias: para situações de assédio, discriminação ou irregularidades"
+          ],
+          example: "CIPA organiza SIPAT (Semana Interna de Prevenção de Acidentes) anualmente. Bom clima = menos turnover."
+        }
+      ],
+      processos: [
+        {
+          emoji: "📂",
+          title: "Rotina Documental & Arquivo",
+          desc: "Documentos precisam ser arquivados de forma organizada por tipo e ordem, facilitando consulta, auditoria e fiscalização. Prazos legais de guarda devem ser respeitados.",
+          list: [
+            "Métodos de arquivamento: alfabético, numérico, cronológico, geográfico, temático",
+            "Documentos trabalhistas: guardar por 5 anos (folha, férias, rescisões)",
+            "Documentos fiscais: guardar por 5 anos (notas fiscais, livros contábeis)",
+            "Contratos: guardar por 5 anos após o término",
+            "Arquivo físico: pastas suspensas, caixas box, etiquetas identificadoras",
+            "Arquivo digital: scanner, nuvem, backup, segurança da informação (LGPD)",
+            "Protocolo: controle de entrada e saída de documentos com carimbo e registro"
+          ],
+          example: "Contratos em ordem alfabética agilizam busca. Digitalizar documentos evita perda e economiza espaço físico."
+        },
+        {
+          emoji: "⚖️",
+          title: "Legislação e 5S",
+          desc: "Conhecer a legislação trabalhista (CLT, NRs), aplicar conceitos 5S e processos administrativos é fundamental para conformidade e eficiência.",
+          list: [
+            "CLT (Consolidação das Leis do Trabalho): regula relações de trabalho no Brasil",
+            "NRs (Normas Regulamentadoras): segurança e saúde no trabalho (NR 5 - CIPA, NR 6 - EPI, etc.)",
+            "5S: Seiri (utilização), Seiton (ordenação), Seiso (limpeza), Seiketsu (padronização), Shitsuke (disciplina)",
+            "Direitos do trabalhador: 13º, férias, FGTS, aviso prévio, adicional noturno, insalubridade",
+            "Deveres do trabalhador: pontualidade, produtividade, respeito às normas internas",
+            "Reforma Trabalhista (2017): mudanças em férias, jornada, home office, rescisão",
+            "eSocial: sistema de envio digital de obrigações trabalhistas, previdenciárias e fiscais"
+          ],
+          example: "Programa 5S garante escritório limpo, organizado e produtivo. eSocial unifica envio de folha, admissões e demissões."
+        },
+        {
+          emoji: "✨",
+          title: "Recursos Humanos",
+          desc: "Recrutamento, seleção, treinamento, avaliação de desempenho e planos de carreira são pilares do RH estratégico para atrair e reter talentos.",
+          list: [
+            "Recrutamento: captação de candidatos (interno ou externo, job boards, redes sociais)",
+            "Seleção: triagem de currículos, testes, entrevistas, dinâmicas de grupo",
+            "Onboarding (integração): apresentação da empresa, cultura, treinamentos iniciais",
+            "Treinamento e desenvolvimento: capacitação técnica, comportamental, liderança",
+            "Avaliação de desempenho: feedback periódico, metas, PDI (Plano de Desenvolvimento Individual)",
+            "Plano de carreira: perspectiva de crescimento, promoções, sucessão",
+            "Clima organizacional: pesquisas de satisfação, ações de engajamento, qualidade de vida",
+            "Folha de pagamento: cálculo de salários, benefícios, encargos e obrigações acessórias"
+          ],
+          example: "Treinamentos capacitam e valorizam os funcionários. Plano de carreira reduz turnover e aumenta produtividade."
+        }
+      ]
+    };
+
+    function renderCards(selected = 'rotinas') {
+      const cards = topics[selected];
+      const place = document.getElementById('ilustra-cards');
+      place.innerHTML = '';
+      cards.forEach(card => {
+        place.innerHTML += `
+        <div class="cartoon-card">
+          <div class="cartoon-img" aria-hidden="true">${card.emoji}</div>
+          <div class="cartoon-title">${card.title}</div>
+          <div class="cartoon-desc">${card.desc}</div>
+          <ul class="cartoon-list">
+            ${card.list.map(item => `<li>• ${item}</li>`).join('')}
+          </ul>
+          <div class="example">Exemplo: ${card.example}</div>
+        </div>
+        `;
+      });
+    }
+
+    document.getElementById('sel-topic').addEventListener('change', function(e){
+      renderCards(e.target.value);
+    });
+
+    // Inicialização
+    renderCards();
+  </script>
+</body>
+</html>
